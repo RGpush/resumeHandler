@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const app = express();
@@ -10,8 +10,8 @@ const profile = require('./routes/api/profile');
 const post = require('./routes/api/post');
 
 //body parser middleware
-app.use(bodyparser.urlencoded({extended:false}));
-app.use(bodyparser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //db config
 const db = require('./config/keys').mongoURI;
@@ -32,7 +32,7 @@ require('./config/passport')(passport);
 
 app.use('/api/users',users);
 app.use('/api/profile',profile);
-app.use('/api/post',post);
+app.use('/api/posts',post);
 
 const port = process.env.PORT || 5000;
 
